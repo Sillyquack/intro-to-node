@@ -1,6 +1,9 @@
 const { Router } = require("express");
 const router = express.Router();
-const logger = require("../logger");
+const ExpressValidator = require("../middleware/index.js");
+const userDB = require("../database/userDB.js");
+
+router.use(ExpressValidator);
 
 router.get("/", (req, res) => {
   res.status(200).send(userDB);
